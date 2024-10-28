@@ -32,7 +32,7 @@ async def on_message(message):
         return
     # Prevent the bot from replying to itself
     print(f"Received message: {message.content} from {message.author}")
-    if bot.user.mention in message.content or bot.user in message.mentions:
+    if bot.user.mention in message.content or bot.user in message.mentions or message.guild is None:
         print(f"""
 
 {message_history}
@@ -87,7 +87,7 @@ async def analyze(ctx, *, question):
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         # Display the help message when an unknown command is used
-        ctx.reply(help_txt)
+        await ctx.reply(help_txt)
         await ctx.send_help(None)
 
 
@@ -100,7 +100,7 @@ async def clear_history(ctx):
 
 @bot.command(name="helpme")
 async def lhelp(ctx):
-    ctx.reply(help_txt)
+    await ctx.reply(help_txt)
     
 
 
