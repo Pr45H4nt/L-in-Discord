@@ -56,7 +56,7 @@ Commands:
 - `!Lanalyze <question>`: Pose a question, and I will respond as I see fit.
 - `!clear_history`: Clears our conversation history. Are you hiding something?
 - `!clear_all_history` (restricted): Only accessible to those with authority. Wipes all users’ history.
-- `!Lhelp`: Calls on me to remind you of what you can do.
+- `!Lhelpme`: Calls on me to remind you of what you can do.
 
 You may also speak with me naturally, as if you were engaging in ordinary conversation. I am...observing everything.
 

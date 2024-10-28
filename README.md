@@ -57,7 +57,7 @@ This is a Discord bot inspired by **L** from *Death Note*, designed to provide r
 
 - **`!Lanalyze <question>`**: Ask L a question, and he will reply based on recent conversation context.
 - **`!Lclear_history`**: Clear your conversation history with the bot.
-- **`!Lhelp`**: Clear your conversation history with the bot.
+- **`!Lhelpme`**: Clear your conversation history with the bot.
 
 ### Chat History Management
 

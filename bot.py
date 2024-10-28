@@ -83,6 +83,12 @@ async def analyze(ctx, *, question):
     
     await ctx.send(f"{ai_response}")
 
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        # Display the help message when an unknown command is used
+        ctx.reply(help_txt)
+        await ctx.send_help(None)
 
 
 @bot.command(name="clear_history")
@@ -92,8 +98,8 @@ async def clear_history(ctx):
         message_history[user_id] = []
     await ctx.send("Your Conversation history cleared!")
 
-@bot.command(name="help")
-async def help(ctx):
+@bot.command(name="helpme")
+async def lhelp(ctx):
     ctx.reply(help_txt)
     
 
