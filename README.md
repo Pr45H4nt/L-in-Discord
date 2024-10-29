@@ -6,75 +6,95 @@ This is a Discord bot inspired by **L** from *Death Note*, designed to provide r
 
 ![Alt Text](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/L_Old_London.svg/330px-L_Old_London.svg.png)
 
+## 🔥 Features
 
-## Features
+- **Persona-Based Interactions**: Engage with L using commands like `!Lanalyze`, `!Ldeduce`, and more. Each response is crafted with L's iconic analytical and mysterious tone.
+- **Dynamic Typing & Reactions**: Simulates realistic typing delays and adds reactions to messages, enhancing the immersion.
+- **Contextual Memory**: Maintains recent conversation history to deliver responses with contextual understanding.
+- **Adaptive Presence**: The bot updates its Discord status periodically to reflect actions that mimic L's personality.
 
-- **L-themed Responses**: Delivers short, sharp, and sometimes cryptic responses inspired by L's personality.
-- **Contextual Chat**: Maintains recent chat history for user-specific responses.
+## 📋 Setup
 
-## Setup
+### Prerequisites
 
-### Requirements
-
-- **Python** 3.8+
-- **Discord.py**: Python library for interacting with Discord API.
-- **Google Gemini**: For generating AI responses (requires an API key).
+- **Python 3.12+**
+- **Libraries**: `discord.py`, `dotenv`, `asyncio`
 
 ### Installation
 
-1. **Clone the Repository**
-
+1. **Clone the repository**:
    ```bash
-   git clone https://github.com/pr45h4nt/l-themed-discord-bot.git
-   cd l-themed-discord-bot
+   git clone https://github.com/pr45h4nt/L-in-Discord.git
+   cd L-in-Discord
    ```
 
-2. **Install Dependencies**
+2. **Set up a virtual environment**:
+   ```bash
+   python3.12 -m venv .env
+   source .env/bin/activate
+   ```
 
+3. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Configure API Keys**
+4. **Configure Environment Variables**:
+   - Create a `.env` file in the root directory with your Discord bot token and Gemini API token:
+     ```plaintext
+     discord_token=YOUR_DISCORD_TOKEN
+     gemini_token=YOUR_GEMINI_API_TOKEN
+     ```
 
-   modify the `config.py` file with your Discord bot token and Google Gemini API key:
+### Running the Bot
 
-   ```python
-   # config.py
-   discord_token = "YOUR_DISCORD_TOKEN"
-   gemini_token = "YOUR_GEMINI_API_KEY"
-   ```
+To start the bot, activate your virtual environment and run the bot script:
 
-4. **Run the Bot**
+```bash
+source .env/bin/activate
+python bot.py
+```
 
-   ```bash
-   python bot.py
-   ```
+## 🎮 Usage
 
-## Usage
+### Commands Overview
 
-### Commands
+| Command                | Description                                                                                             |
+|------------------------|---------------------------------------------------------------------------------------------------------|
+| **`!Lanalyze <text>`** | Have L analyze a question or situation, offering deductive insights with probability estimates.         |
+| **`!Ldeduce [@user]`** | L makes a deduction about a server member based on account age, roles, and other details.               |
+| **`!Lclear_history`**  | Clears conversation history for the user, resetting the context for future interactions.                |
+| **`!Lhelpme`**         | Displays help text with an "L-like" persona, providing assistance in a cryptic, characteristic manner.  |
 
-- **`!Lanalyze <question>`**: Ask L a question, and he will reply based on recent conversation context.
-- **`!Lclear_history`**: Clear your conversation history with the bot.
-- **`!Lhelpme`**: Clear your conversation history with the bot.
+### Example Interactions
 
-### Chat History Management
+- **Dynamic Reactions**: SmartBot occasionally reacts with emojis such as 🍰, 🔍, or 🤔 to add a quirky touch.
+- **Presence Updates**: L’s status alternates between activities like “Calculating probabilities…” or “Eating sweets,” updating every 5 minutes.
+- **Realistic Typing Delays**: Response time is dynamically adjusted based on message length to simulate a natural typing delay.
 
-The bot keeps track of recent messages per user to maintain context for each conversation. When the message history for a user exceeds 10 messages, older messages are removed to optimize memory usage.
+## 🛠️ Code Structure
 
-## File Overview
+- **`bot.py`**: Main bot script defining commands, event handling, and memory management.
+- **`config.py`**: Handles configuration, loading environment variables and the custom prompt for L's persona.
+- **`get_response.py`**: Handles communication with the Gemini AI model, including API calls and response generation.
+- **`requirements.txt`**: Lists required Python libraries for the project.
 
-- `bot.py`: Main script for the bot that handles command processing and interaction logic.
-- `get_response.py`: Generates responses from Google Gemini based on user input and chat history.
-- `config.py`: Stores API keys and other configuration details like prompts.
+## 🚨 Logging and Debugging
 
-## Troubleshooting
+- **Error Handling**: The bot uses comprehensive logging for all command events and interactions, ensuring any issues are easily traceable.
+- **Timezone Compatibility**: UTC-based time handling prevents conflicts in date and time calculations across various Discord servers.
 
-- **Command permissions**: Ensure the bot has necessary permissions in your server, such as reading messages and replying in channels.
+## 🔧 Troubleshooting
 
-## Contributing
+- **Command Not Responding**: Ensure `await` is used with asynchronous functions in commands.
+- **Timezone Errors**: Offset-aware timestamps are used to avoid compatibility issues in date/time comparisons.
+- **Rate Limit**: If you encounter rate limits, ensure that AI requests are spaced appropriately to respect API rate limits.
 
-Feel free to fork the repository and submit pull requests for new features, bug fixes, or improvements.
+## 🤝 Contributing
+
+Contributions are welcome! Fork the repository, make your updates, and submit a pull request. Help us make SmartBot even better!
 
 
+---
+
+Enjoy interacting with L, and let the deductions begin!

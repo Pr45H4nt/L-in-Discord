@@ -1,2 +1,3 @@
 discord
 google-generativeai
+asyncio
